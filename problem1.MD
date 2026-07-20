@@ -1,13 +1,18 @@
+```mermaid
 flowchart TD
-    A([Start]) --> B[/Input Temperature Celsius/]
-    B --> C{Temperature >= 35?}
-    C -->|Yes| D[Hot]
-    C -->|No| E{Temperature >= 25?}
-    E -->|Yes| F[Warm]
-    E -->|No| G{Temperature >= 15?}
-    G -->|Yes| H[Cool]
-    G -->|No| I[Cold]
-    D --> J([End])
-    F --> J
-    H --> J
-    I --> J
+    A([Start]) --> B[/Input Grade/]
+    B --> C{Grade >= 90?}
+    C -->|Yes| D[Excellent]
+    C -->|No| E{Grade >= 85?}
+    E -->|Yes| F[Very Good]
+    E -->|No| G{Grade >= 80?}
+    G -->|Yes| H[Good]
+    G -->|No| I{Grade >= 75?}
+    I -->|Yes| J[Passed]
+    I -->|No| K[Failed]
+    D --> L([End])
+    F --> L
+    H --> L
+    J --> L
+    K --> L
+```
