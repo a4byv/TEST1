@@ -2,10 +2,10 @@
 flowchart TD
     A([Start]) --> B[/Input Grade/]
     B --> C{Grade >= 90?}
-    C -->|Yes| D[Excellent]
-    C -->|No| E{Grade >= 85?}
-    E -->|Yes| F[Very Good]
-    E -->|No| G{Grade >= 80?}
+    C --> D|Yes| D[Excellent]
+    D -->E|No| E{Grade >= 85?}
+    E -->F|Yes| F[Very Good]
+    F -->G|No| G{Grade >= 80?}
     G -->|Yes| H[Good]
     G -->|No| I{Grade >= 75?}
     I -->|Yes| J[Passed]
