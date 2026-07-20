@@ -1,21 +1,30 @@
 ```mermaid
 flowchart TD
-    A([Start]) --> B[/Enter Grade/]
-    B --> C{Grade >= 90?}
+    A([Start])
+    B[/Input Grade/]
+    C{Grade >= 90?}
+    D[Excellent]
+    E{Grade >= 85?}
+    F[Very Good]
+    G{Grade >= 80?}
+    H[Good]
+    I{Grade >= 75?}
+    J[Passed]
+    K[Failed]
+    L([End])
 
-    C -->|Yes| D[Excellent]
-    C -->|No| E{Grade >= 85?}
+    A --> B
+    B --> C
+    C -->|Yes| D
+    C -->|No| E
+    E -->|Yes| F
+    E -->|No| G
+    G -->|Yes| H
+    G -->|No| I
+    I -->|Yes| J
+    I -->|No| K
 
-    E -->|Yes| F[Very Good]
-    E -->|No| G{Grade >= 80?}
-
-    G -->|Yes| H[Good]
-    G -->|No| I{Grade >= 75?}
-
-    I -->|Yes| J[Passed]
-    I -->|No| K[Failed]
-
-    D --> L([End])
+    D --> L
     F --> L
     H --> L
     J --> L
