@@ -1,13 +1,13 @@
 ```mermaid
-flowchart TD
-    A([Start]) --> B[/Input Grade/]
-    B --> C{Grade >= 90?}
+flowchart LR
+    A([Start]) --> B[/Enter Grade/]
+    B --> C{Grade 90-100?}
     C -->|Yes| D[Excellent]
-    D -->|No| E{Grade >= 85?}
+    C -->|No| E{Grade 85-89?}
     E -->|Yes| F[Very Good]
-    F -->|No| G{Grade >= 80?}
+    E -->|No| G{Grade 80-84?}
     G -->|Yes| H[Good]
-    G -->|No| I{Grade >= 75?}
+    G -->|No| I{Grade 75-79?}
     I -->|Yes| J[Passed]
     I -->|No| K[Failed]
     D --> L([End])
