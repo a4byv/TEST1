@@ -1,30 +1,33 @@
-        START
-          |
-          v
-   Input Grade
-          |
-          v
- Is Grade >= 90?
-     /       \
-   Yes        No
-   |           |
-   v           v
-Excellent   Is Grade >= 85?
-              /      \
-            Yes       No
-            |          |
-            v          v
-       Very Good   Is Grade >= 80?
-                     /       \
-                   Yes        No
-                   |           |
-                   v           v
-                Good     Is Grade >= 75?
-                            /      \
-                          Yes       No
-                          |          |
-                          v          v
-                       Passed     Failed
-                          \        /
-                           v      v
-                             END
+from graphviz import Digraph
+
+flow = Digraph("Grade Classification")
+
+flow.node("A", "START")
+flow.node("B", "Input Grade")
+flow.node("C", "Grade >= 90?")
+flow.node("D", "Excellent")
+flow.node("E", "Grade >= 85?")
+flow.node("F", "Very Good")
+flow.node("G", "Grade >= 80?")
+flow.node("H", "Good")
+flow.node("I", "Grade >= 75?")
+flow.node("J", "Passed")
+flow.node("K", "Failed")
+flow.node("L", "END")
+
+flow.edges([("A","B"), ("B","C")])
+flow.edge("C","D", label="Yes")
+flow.edge("C","E", label="No")
+flow.edge("E","F", label="Yes")
+flow.edge("E","G", label="No")
+flow.edge("G","H", label="Yes")
+flow.edge("G","I", label="No")
+flow.edge("I","J", label="Yes")
+flow.edge("I","K", label="No")
+flow.edge("D","L")
+flow.edge("F","L")
+flow.edge("H","L")
+flow.edge("J","L")
+flow.edge("K","L")
+
+flow.render("grade_flowchart", view=True)
